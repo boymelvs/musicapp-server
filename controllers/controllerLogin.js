@@ -20,6 +20,7 @@ exports.login = (req, res) => {
          first_name: results[0].first_name,
          last_name: results[0].last_name,
          email: results[0].email,
+         image: results[0].image,
          is_admin: results[0].is_admin,
       };
 

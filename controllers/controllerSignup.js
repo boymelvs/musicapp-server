@@ -15,7 +15,6 @@ const isEmpty = (body, error_list) => {
    return false;
 };
 
-let isSuccess;
 exports.signup = async (req, res) => {
    let error_list = {};
 
