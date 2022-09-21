@@ -46,8 +46,8 @@ exports.startSearch = async (req, res) => {
                id: track.id,
                title: track.name,
                track: track.preview_url,
-               artistName: track.artists[0].name,
-               albumImg: track.album.images[0].url,
+               artist_name: track.artists[0].name,
+               album_img: track.album.images[0].url,
             };
 
             allSongs.push(allTracks);

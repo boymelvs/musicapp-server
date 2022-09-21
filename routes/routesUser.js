@@ -6,6 +6,7 @@ const controllerLogin = require("../controllers/controllerLogin");
 const controllerSignup = require("../controllers/controllerSignup");
 const controllerEditProfile = require("../controllers/controllerEditProfile");
 const controllertUserDelete = require("../controllers/controllerUserDelete");
+const controllerFavorite = require("../controllers/controllerFavorite");
 
 // create storage
 const storage = multer.diskStorage({
@@ -29,4 +30,8 @@ router.post("/profile", getImage, controllerEditProfile.update);
 router.post("/login", controllerLogin.login);
 router.post("/signup", controllerSignup.signup);
 router.delete("/delete/:id", controllertUserDelete.delete);
+
+router.post("/add-song", controllerFavorite.add);
+router.delete("/delete-song/:id", controllerFavorite.delete);
+
 module.exports = router;
