@@ -2,6 +2,7 @@ const db = require("../database/dbconnect");
 
 exports.update = (req, res) => {
    const { id, first_name, last_name } = req.body;
+
    const receivedImage = req.files.image[0];
 
    const getImagePath = req.protocol + "://" + req.get("host") + "/public/uploads/" + receivedImage.filename;

@@ -15,15 +15,26 @@ exports.login = (req, res) => {
          return res.status(401).json({ message: "Email or password is incorrect" });
       }
 
-      const sendResults = {
-         id: results[0].user_id,
-         first_name: results[0].first_name,
-         last_name: results[0].last_name,
-         email: results[0].email,
-         image: results[0].image,
-         is_admin: results[0].is_admin,
-      };
+      db.query(`SELECT * FROM favorite_songs WHERE user_id = ?`, results[0].user_id, (err, resultSong) => {
+         if (err) {
+            console.log(err);
+         }
 
-      return res.status(200).json(sendResults);
+         const favorite = resultSong.map((song) => {
+            return { id: song.track_id, title: song.title, track: song.track, artist_name: song.artist_name, album_img: song.album_img };
+         });
+
+         const sendResults = {
+            id: results[0].user_id,
+            first_name: results[0].first_name,
+            last_name: results[0].last_name,
+            email: results[0].email,
+            image: results[0].image,
+            is_admin: results[0].is_admin,
+            favorites: favorite,
+         };
+
+         return res.status(200).json(sendResults);
+      });
    });
 };
