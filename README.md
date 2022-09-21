@@ -10,15 +10,15 @@
 
 ## Welcome! 👋
 
-Thanks for checking out this kodegph bootcamp second project from group 5.
+Thanks for checking out this kodegph bootcamp final project from group 5.
 
 ## Overview
 
-This is our Major Project II : Multi-page Responsive Website in bootcamp.
+This is our Major Project III : Create Fullstack Website. Backend part.
 
 ### The Project
 
-The is a group project and is about to build a website demonstrating what we learn so far in bootcamp such as html5, sass, javascript ES6.
+The is a group project and is about to build a website demonstrating what we learn in bootcamp.
 
 ### Group Member
 
@@ -29,11 +29,12 @@ The is a group project and is about to build a website demonstrating what we lea
 
 ### Links
 
--  Live Site URL: [KODEGOPH-PROJECT-2](https://boymelvs.github.io/pairgo)
+-  Live Site URL: [KODEGOPH-PROJECT-3]()
 
 ### Built with
 
 -  HTML
 -  SCSS/CSS
--  Flexbox
 -  Javascript
+-  React Js
+-  NodeJs
