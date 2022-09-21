@@ -24,11 +24,13 @@ exports.add = (req, res) => {
 };
 
 exports.delete = (req, res) => {
+   const { user_id } = req.body;
+
    const track_id = req.params.id;
 
-   const myQuery = `DELETE FROM favorite_songs WHERE track_id = ?`;
+   const myQuery = `DELETE FROM favorite_songs WHERE track_id = ? AND user_id = ?`;
 
-   db.query(myQuery, track_id, (err, results) => {
+   db.query(myQuery, [track_id, user_id], (err, results) => {
       if (err) {
          return res.status(400).json(err.message);
       }

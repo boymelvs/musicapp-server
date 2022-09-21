@@ -45,6 +45,7 @@ exports.startSearch = async (req, res) => {
             const allTracks = {
                id: track.id,
                title: track.name,
+               // track: track.href,
                track: track.preview_url,
                artist_name: track.artists[0].name,
                album_img: track.album.images[0].url,
@@ -54,6 +55,7 @@ exports.startSearch = async (req, res) => {
          }
       });
 
+      console.log(getSongs.data.tracks);
       res.send(allSongs.slice(0, 9));
    } catch (err) {
       console.log("search", err);

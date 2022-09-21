@@ -32,6 +32,6 @@ router.post("/signup", controllerSignup.signup);
 router.delete("/delete/:id", controllertUserDelete.delete);
 
 router.post("/add-song", controllerFavorite.add);
-router.delete("/delete-song/:id", controllerFavorite.delete);
+router.post("/delete-song/:id", controllerFavorite.delete);
 
 module.exports = router;
