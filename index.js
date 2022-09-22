@@ -29,5 +29,5 @@ app.listen(port, () => {
       }
    });
 
-   token.getToken();
+   token.getToken;
 });
