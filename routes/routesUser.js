@@ -26,8 +26,8 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 const getImage = upload.fields([{ name: "image" }]);
 
-router.post("/profile", getImage, controllerEditProfile.update);
 router.post("/login", controllerLogin.login);
+router.post("/profile", getImage, controllerEditProfile.update);
 router.post("/signup", controllerSignup.signup);
 router.delete("/delete/:id", controllertUserDelete.delete);
 

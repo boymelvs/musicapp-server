@@ -1,6 +1,6 @@
 const db = require("../database/dbConnect");
 
-module.exports.update = (req, res) => {
+exports.update = (req, res) => {
    const { id, first_name, last_name } = req.body;
 
    const receivedImage = req.files.image[0];
