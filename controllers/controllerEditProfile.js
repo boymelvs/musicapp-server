@@ -1,4 +1,4 @@
-const db = require("../database/dbconnect");
+const db = require("../database/dbConnect");
 
 exports.update = (req, res) => {
    const { id, first_name, last_name } = req.body;
