@@ -1,4 +1,4 @@
-const db = require("../database/dbconnect");
+const db = require("../database/dbConnect");
 
 exports.delete = (req, res) => {
    const id = req.params.id;

@@ -29,9 +29,9 @@ const getImage = upload.fields([{ name: "image" }]);
 router.post("/login", controllerLogin.login);
 router.post("/profile", getImage, controllerEditProfile.update);
 router.post("/signup", controllerSignup.signup);
-router.delete("/delete/:id", controllertUserDelete.delete);
 
 router.post("/add-song", controllerFavorite.add);
 router.post("/delete-song/:id", controllerFavorite.delete);
+router.delete("/delete/:id", controllertUserDelete.delete);
 
 module.exports = router;
