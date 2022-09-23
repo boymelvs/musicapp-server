@@ -74,11 +74,11 @@ exports.startSearch = async (req, res) => {
          } catch (innerErr) {
             console.log("search", innerErr);
          }
-      } else {
-         console.log("search", err);
-         res.status(401).json(err);
+
+         return;
       }
+
+      console.log("search", err);
+      res.status(401).json(err);
    }
 };
-
-exports = getToken();
