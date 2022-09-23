@@ -3,7 +3,6 @@ const path = require("path");
 const db = require("./database/dbConnect");
 const dotenv = require("dotenv");
 const cors = require("cors");
-const token = require("./controllers/controllerHomepage");
 const morgan = require("morgan");
 
 dotenv.config({ path: "./.env" });
@@ -28,6 +27,4 @@ app.listen(port, () => {
          console.log("Database Successfuly Connected!");
       }
    });
-
-   token.getToken;
 });

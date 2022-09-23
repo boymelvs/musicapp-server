@@ -19,13 +19,14 @@ const getToken = async () => {
    try {
       const response = await axios.post("https://accounts.spotify.com/api/token", data, authOptions);
       token = response.data.access_token;
+      console.log("token requested");
       return token;
    } catch (error) {
       return error;
    }
 };
 
-const mySearch = async (search, newToken) => {
+const doSearching = async (search, newToken) => {
    let allSongs = [];
 
    const artistParams = {
@@ -60,14 +61,15 @@ exports.startSearch = async (req, res) => {
    const { search } = req.body;
 
    try {
-      const results = await mySearch(search, token);
+      const results = await doSearching(search, token);
       res.send(results.splice(0, 9));
    } catch (err) {
+      // when token expired
       if (err.response.status === 401) {
          try {
             const renewToken = await getToken();
 
-            const results = await mySearch(search, renewToken);
+            const results = await doSearching(search, renewToken);
             res.send(results.splice(0, 9));
          } catch (innerErr) {
             console.log("search", innerErr);
