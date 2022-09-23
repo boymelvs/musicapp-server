@@ -1,11 +1,16 @@
 const db = require("../database/dbConnect");
 
 exports.update = (req, res) => {
-   const { id, first_name, last_name } = req.body;
+   const { id, first_name, last_name, image } = req.body;
+   let receivedImage;
+   let getImagePath;
 
-   const receivedImage = req.files.image[0];
-
-   const getImagePath = req.protocol + "://" + req.get("host") + "/public/uploads/" + receivedImage.filename;
+   if (image || image === "") {
+      getImagePath = image;
+   } else {
+      receivedImage = req.files.image[0];
+      getImagePath = req.protocol + "://" + req.get("host") + "/public/uploads/" + receivedImage.filename;
+   }
 
    const myQuery = `UPDATE users SET first_name=?, last_name=?, image=? WHERE user_id = ?`;
 
