@@ -65,20 +65,17 @@ exports.startSearch = async (req, res) => {
       res.send(results.splice(0, 9));
    } catch (err) {
       // when token expired
-      if (err.response.status === 401) {
-         try {
+      try {
+         if (err.response.status === 401 || err.code === "ECONNRESET") {
             const renewToken = await getToken();
 
             const results = await doSearching(search, renewToken);
             res.send(results.splice(0, 9));
-         } catch (innerErr) {
-            console.log("search", innerErr);
+            return;
          }
-
-         return;
+      } catch (innerErr) {
+         console.log("search", err);
+         res.status(401).json(err);
       }
-
-      console.log("search", err);
-      res.status(401).json(err);
    }
 };
