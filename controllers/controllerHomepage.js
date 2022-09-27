@@ -68,9 +68,11 @@ exports.startSearch = async (req, res) => {
       try {
          if (err.response.status === 401 || err.code === "ECONNRESET") {
             const renewToken = await getToken();
+            console.log("refresh token");
 
             const results = await doSearching(search, renewToken);
             res.send(results.splice(0, 9));
+
             return;
          }
       } catch (innerErr) {
